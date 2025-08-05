@@ -1,0 +1,51 @@
+<template>
+  <div class="card">
+    <div class="card-header">
+      最新餐廳
+    </div>
+    <div class="card-body">
+      <div
+        v-for="restaurant in restaurants"
+        :key="restaurant.id"
+      >
+        <h4>
+          <router-link :to="{ name: 'restaurant', params: { id: restaurant.id } }">{{ restaurant.name }}</router-link>
+          &nbsp;
+          <small>{{ restaurant.Category ? restaurant.Category.name : '未分類' }}</small>
+        </h4>
+        <p>{{ restaurant.description }}</p>
+        {{ restaurant.createdAt | fromNow }}
+        <hr>
+      </div>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+small {
+  font-size: 10px;
+}
+</style>
+
+<script>
+import { fromNowFilter } from '../utils/mixins';
+
+export default {
+  // filters: {
+  //   fromNow(value) {
+  //     if (!value) {
+  //       return '-'
+  //     }
+  //     // 使用 moment 回傳 fromNow 的時間 
+  //     return moment(value).fromNow()
+  //   }
+  // },
+  mixins: [fromNowFilter],
+  props: {
+    restaurants: {
+      type: Array,
+      required: true
+    }
+  }
+}
+</script>
