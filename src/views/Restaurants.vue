@@ -30,202 +30,8 @@ import NavTabs from './../components/NavTabs'
 import RestaurantCard from '../components/RestaurantCard.vue';
 import RestaurantsNavPills from '../components/RestaurantsNavPills.vue';
 import RestaurantsPagination from '../components/RestaurantsPagination.vue';
-
-const dummyData = {
-  restaurants: [
-    {
-      id: 10,
-      name: "testrestaurant",
-      tel: "1-478-082-2904",
-      adress: "oooo",
-      opening_hours: "08:00",
-      description: "uojhfwvfw keo -ihuycw",
-      image: null,
-      viewCounts: 55,
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z",
-      categoryId: 100,
-      Category: "複合式餐廳",
-      idFavorited: true,
-      isLiked: true
-    },
-    {
-      id: 11,
-      name: "testrestaurant",
-      tel: "1-478-082-2904",
-      adress: "oooo",
-      opening_hours: "08:00",
-      description: "uojhfwvfw keo -ihuycw",
-      image: null,
-      viewCounts: 55,
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z",
-      categoryId: 100,
-      Category: "複合式餐廳",
-      idFavorited: true,
-      isLiked: true
-    },
-    {
-      id: 12,
-      name: "testrestaurant",
-      tel: "1-478-082-2904",
-      adress: "oooo",
-      opening_hours: "08:00",
-      description: "uojhfwvfw keo -ihuycw",
-      image: null,
-      viewCounts: 55,
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z",
-      categoryId: 100,
-      Category: "複合式餐廳",
-      idFavorited: true,
-      isLiked: true
-    },
-    {
-      id: 13,
-      name: "testrestaurant",
-      tel: "1-478-082-2904",
-      adress: "oooo",
-      opening_hours: "08:00",
-      description: "uojhfwvfw keo -ihuycw",
-      image: null,
-      viewCounts: 55,
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z",
-      categoryId: 100,
-      Category: "複合式餐廳",
-      idFavorited: true,
-      isLiked: true
-    },
-    {
-      id: 14,
-      name: "testrestaurant",
-      tel: "1-478-082-2904",
-      adress: "oooo",
-      opening_hours: "08:00",
-      description: "uojhfwvfw keo -ihuycw",
-      image: null,
-      viewCounts: 55,
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z",
-      categoryId: 100,
-      Category: "複合式餐廳",
-      idFavorited: true,
-      isLiked: true
-    },
-        {
-      id: 15,
-      name: "testrestaurant",
-      tel: "1-478-082-2904",
-      adress: "oooo",
-      opening_hours: "08:00",
-      description: "uojhfwvfw keo -ihuycw",
-      image: null,
-      viewCounts: 55,
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z",
-      categoryId: 100,
-      Category: "複合式餐廳",
-      idFavorited: true,
-      isLiked: true
-    },
-    {
-      id: 16,
-      name: "testrestaurant",
-      tel: "1-478-082-2904",
-      adress: "oooo",
-      opening_hours: "08:00",
-      description: "uojhfwvfw keo -ihuycw",
-      image: null,
-      viewCounts: 55,
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z",
-      categoryId: 100,
-      Category: "複合式餐廳",
-      idFavorited: true,
-      isLiked: true
-    },
-    {
-      id: 17,
-      name: "testrestaurant",
-      tel: "1-478-082-2904",
-      adress: "oooo",
-      opening_hours: "08:00",
-      description: "uojhfwvfw keo -ihuycw",
-      image: null,
-      viewCounts: 55,
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z",
-      categoryId: 100,
-      Category: "複合式餐廳",
-      idFavorited: true,
-      isLiked: true
-    },
-    {
-      id: 18,
-      name: "testrestaurant",
-      tel: "1-478-082-2904",
-      adress: "oooo",
-      opening_hours: "08:00",
-      description: "uojhfwvfw keo -ihuycw",
-      image: null,
-      viewCounts: 55,
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z",
-      categoryId: 100,
-      Category: "複合式餐廳",
-      idFavorited: true,
-      isLiked: true
-    },
-    {
-      id: 19,
-      name: "testrestaurant",
-      tel: "1-478-082-2904",
-      adress: "oooo",
-      opening_hours: "08:00",
-      description: "uojhfwvfw keo -ihuycw",
-      image: null,
-      viewCounts: 55,
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z",
-      categoryId: 100,
-      Category: "複合式餐廳",
-      idFavorited: true,
-      isLiked: true
-    }
-  ],
-  categories: [
-    {
-      id: 100,
-      name: "複合式料理",
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z"
-    },
-    {
-      id: 101,
-      name: "美式料理",
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z"
-    },
-    {
-      id: 102,
-      name: "中式料理",
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z"
-    },
-    {
-      id: 103,
-      name: "韓式料理",
-      createdAt: "2019-12-19T11:26:09.928Z",
-      updatedAt: "2019-12-19T11:26:15.928Z"
-    }
-  ],
-  page: 1,
-  totalPage: [1, 2, 3, 4, 5],
-  prev: 1,
-  next: 2,
-  categoryId: ''
-}
+import restaurantsAPI from './../apis/restaurants'
+import { Toast } from '../utils/helpers';
 
 export default {
   components: {
@@ -246,26 +52,39 @@ export default {
     }
   },
   created() {
-    this.fetchRestaurants()
+    // console.log('created')
+    const { page = '', categoryId = '' } = this.$route.query
+    this.fetchRestaurants({ queryPage: page, queryCategoryId: categoryId })
+  },
+  beforeRouterUpdate (to, from, next) {
+    const { page = '', categoryId = '' } = to.query
+    this.fetchRestaurants({ queryPage: page, queryCategoryId: categoryId })
+    next()
   },
   methods: {
-    fetchRestaurants () {
-      const {
-        restaurants,
-        categories,
-        categoryId,
-        page,
-        totalPage,
-        prev,
-        next
-      } = dummyData
-      this.restaurants = restaurants
-      this.categories = categories
-      this.categoryId = categoryId
-      this.currentPage = page
-      this.totalPage = totalPage
-      this.previousPage = prev
-      this.nextPage = next
+    async fetchRestaurants ({ queryPage, queryCategoryId }) {
+      try {
+        const response = await restaurantsAPI.getRestaurants({
+          page: queryPage,
+          categoryId: queryCategoryId
+        })
+
+        const { restaurants, categories, categoryId, page, totalPage, prev, next } = response.data
+
+        this.restaurants = restaurants
+        this.categories = categories
+        this.categoryId = categoryId
+        this.currentPage = page
+        this.totalPage = totalPage
+        this.previousPage = prev
+        this.nextPage = next
+        // console.log('error', error)
+      } catch (error) {
+        Toast.fire ({
+          icon: 'error',
+          title: '無法取得餐廳資料，請稍後再試'
+        })
+      }
     }
   }
 }

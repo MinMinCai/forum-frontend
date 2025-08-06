@@ -21,7 +21,7 @@
             v-if="usersTop.isFollowing"
             type="button"
             class="btn btn-danger me-1"
-            @click.stop.prevent="deleteFollow"
+            @click.stop.prevent="deleteFollowing"
           >
             取消追蹤
           </button>
@@ -29,7 +29,7 @@
             v-else
             type="button"
             class="btn btn-primary"
-            @click.stop.prevent="addFollow"
+            @click.stop.prevent="addFollowing"
           >
             追蹤
           </button>
@@ -41,18 +41,8 @@
 
 <script>
 import { emptyImageFilter } from './../utils/mixins'
-
-const dummyData = {
-"usersTop": {
-        "id": 1,
-        "name": "Judy",
-        "followers": "0",
-        "image": "https://loremflickr.com/320/240/food,dessert,restaurant/?random=1",
-        "createdAt": "2019-06-22T09:00:43.000Z",
-        "updatedAt": "2019-06-22T09:00:43.000Z",
-    },
-    "isFollowing": false,
-}
+import usersAPI from './../apis/users'
+import { Toast } from '../utils/helpers'
 
 export default {
   mixins: [emptyImageFilter],
@@ -69,23 +59,74 @@ export default {
       }
     }
   },
-  mounted () {
-    this.usersTop = {
-      ...dummyData.usersTop,
-      isFollowing: dummyData.isFollowing
-    }
+  created () {
+    this.fetchTopUsers()
   },
   methods: {
-    addFollow () {
-      this.usersTop = {
-        ...this.usersTop,
-        isFollowing: true
+    async fetchTopUsers () {
+      try {
+        const { data } = await usersAPI.getTopUsers()
+        this.users = data.users.map(user => ({
+          id: user.id,
+          name: user.name,
+          image: user.image,
+          followCount: user.FollowCount,
+          isFollowed: user.isFollowed
+        }))
+      } catch (error) {
+        // console.log(error)
+        Toast.fire({
+          icon: 'error',
+          title: '無法取得美食達人，請稍後再試'
+        })
       }
     },
-    deleteFollow () {
-      this.usersTop = {
-        ...this.usersTop,
-        isFollowing: false
+    async addFollowing (userId) {
+      try {
+        const { data } = await usersAPI.addFollowing({ userId })
+        if (data.status !== 'success') {
+          throw new Error (data.message)
+        }
+        this.users = this.users.map(user => {
+          if (user.id !== userId) {
+            return user
+          } else {
+            return {
+              ...user,
+              followCount: user.followCount + 1,
+              isFollowed: true
+            }
+          }
+        })
+      } catch (error) {
+        Toast.fire ({
+          icon: 'error',
+          title: '無法加入追蹤，請稍後再試'
+        })
+      }
+    },
+    async deleteFollowing (userId) {
+      try {
+        const { data } = await usersAPI.addFollowing({ userId })
+        if (data.status !== 'success') {
+          throw new Error (data.message)
+        }
+        this.users = this.users.map(user => {
+          if (user.id !== userId) {
+            return user
+          } else {
+            return {
+              ...user,
+              followCount: user.followCount - 1,
+              isFollowed: false
+            }
+          }
+        })
+      } catch (error) {
+        Toast.fire ({
+          icon: 'error',
+          title: '無法取消追蹤，請稍後再試'
+        })
       }
     }
   }
