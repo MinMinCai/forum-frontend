@@ -44,6 +44,7 @@
          <button
            type="button" 
            class="btn btn-sm btn-outline-success my-2 my-sm-0"
+           @click="logout"
           >
            登出
           </button>
@@ -53,45 +54,74 @@
   </nav>
 </template>
 
+<style></style>
+
+<style scoped>
+  .navbar-toggler {
+    min-width: 70px;
+    margin-right: 0;
+  }
+
+  nav.bg-dark {
+    padding: 14px 16px;
+    background-color: #bd2333 !important;
+  }
+
+  .navbar-brand {
+    font-size: 19px;
+    padding: 0;
+}
+</style>
+
 <script>
 // seed data
-const dummyUser = {
-  currentUser: {
-    id: 1,
-    name: '管理者',
-    email: 'root@example.com',
-    image: 'https://i.pravatar.cc/300',
-    isAdmin: true
-  },
-  isAuthenticated: true
-}
+// const dummyUser = {
+//   currentUser: {
+//     id: 1,
+//     name: '管理者',
+//     email: 'root@example.com',
+//     image: 'https://i.pravatar.cc/300',
+//     isAdmin: true
+//   },
+//   isAuthenticated: true
+// }
+import { mapState  } from 'vuex';
 
 export default {
-  // Vue 會在沒有資料時使用此預設值
-  data () {
-    return {
-      currentUser: {
-        id: -1,
-        name: '',
-        email: '',
-        image: '',
-        isAdmin: false
-      },
-      isAuthenticated: false
-    }
-  },
-  created () {
-    this.fetchUser()
+  computed: {
+    ...mapState(['currentUser', 'isAuthenticated'])
   },
   methods: {
-    // 會向後端 API 拉取資料
-    fetchUser () {
-      this.currentUser = {
-        ...this.currentUser,
-        ...dummyUser.currentUser
-      }
-      this.isAuthenticated = dummyUser.isAuthenticated
+    logout() {
+      this.$store.commit('revokeAuthenication')
+      this.$router.push('/signin')
     }
   }
+  // Vue 會在沒有資料時使用此預設值
+  // data () {
+  //   return {
+  //     currentUser: {
+  //       id: -1,
+  //       name: '',
+  //       email: '',
+  //       image: '',
+  //       isAdmin: false
+  //     },
+  //     isAuthenticated: false
+  //   }
+  // },
+  // created () {
+  //   this.fetchUser()
+  // },
+  // methods: {
+  //   // 會向後端 API 拉取資料
+  //   fetchUser () {
+  //     this.currentUser = {
+  //       ...this.currentUser,
+  //       ...dummyUser.currentUser
+  //     }
+  //     this.isAuthenticated = dummyUser.isAuthenticated
+  //   }
+  // }
 }
 </script>

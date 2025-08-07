@@ -13,18 +13,18 @@ import AdminRestaurantForm from './../components/AdminRestaurantForm.vue'
 import adminAPI from './../apis/admin'
 import { Toast } from '../utils/helpers'
 
-const dummyData = {
-  'restaurant': {
-    'id': 1,
-    'name': 'Laurence Reynolds',
-    'tel': '1-657-067-3756 x9782',
-    'address': '187 Kirlin Squares',
-    'opening_hours': '08:00',
-    'description': 'sit est mollitia',
-    'image': 'https://loremflickr.com/320/240/restaurant,food/?random=91.29816290184887',
-    'CategoryId': 3
-  }
-}
+// const dummyData = {
+//   'restaurant': {
+//     'id': 1,
+//     'name': 'Laurence Reynolds',
+//     'tel': '1-657-067-3756 x9782',
+//     'address': '187 Kirlin Squares',
+//     'opening_hours': '08:00',
+//     'description': 'sit est mollitia',
+//     'image': 'https://loremflickr.com/320/240/restaurant,food/?random=91.29816290184887',
+//     'CategoryId': 3
+//   }
+// }
 
 export default {
   name: 'AdminRestaurantEdit',

@@ -25,6 +25,14 @@
   </form>
 </template>
 
+<style></style>
+
+<style scoped>
+.form-group {
+  margin: 21px 0 8px;
+}
+</style>
+
 <script>
 import { v4 as uuidv4 } from 'uuid'
 

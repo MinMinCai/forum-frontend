@@ -31,6 +31,24 @@
   </div>
 </template>
 
+<style></style>
+
+<style scoped>
+h2.my-4 {
+  margin-bottom: 1rem !important;
+  font-size: 18px;
+}
+
+h3 {
+  margin-bottom: 3px;
+  line-height: 1.3;
+}
+
+.blockquote-footer {
+  font-size: 12.5px;
+}
+</style>
+
 <script>
 import { fromNowFilter } from '../utils/mixins';
 

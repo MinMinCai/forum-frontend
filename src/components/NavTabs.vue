@@ -15,6 +15,23 @@
   </ul>
 </template>
 
+<style></style>
+
+<style scoped>
+  .nav-tabs {
+    border-bottom: 1px solid #bd2333;
+  }
+
+  .nav-tabs .nav-link:focus,
+  .nav-tabs .nav-link:hover,
+  .nav-tabs .nav-item.show .nav-link,
+  .nav-tabs .nav-link.active {
+    border-color: #bd2333;
+    background-color: #bd2333;
+    color: white;
+}
+</style>
+
 <script>
 import {v4 as uuidv4} from 'uuid'
 export default {
